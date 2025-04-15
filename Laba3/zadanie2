@@ -1,0 +1,31 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RU");// использование русского языка
+    string text;
+    cout << "Введите текст: ";
+    getline(cin, text);
+    // Удаление лишних пробелов
+    string result;
+    bool wasSpace = false;
+    for (int c : text) {
+        if (c == ' ') {
+            if (!wasSpace) {
+                result += c;
+                wasSpace = true;
+            }
+        }
+        else {
+            result += c;
+            wasSpace = false;
+        }
+    }
+
+    cout << "\nТекст с исправленными пробелами:\n" << result << endl;
+
+    return 0;
+}
+
+
