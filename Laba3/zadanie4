@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    string poisk, text;
+
+    // Ввод данных
+    cout << "Введите символы для поиска: ";
+    getline(cin, poisk);
+
+    cout << "Введите текст для анализа: ";
+    getline(cin, text);
+
+    // Подсчет символов
+    cout << "Результаты подсчета"<<endl;
+    for (int i = 0; i < poisk.size(); i++) {
+        char c = poisk[i];
+        int count = 0;
+
+        for (int j = 0; j < text.size(); j++) {
+            if (text[j] == c) {
+                count++;
+            }
+        }
+
+        cout << c<< " встречается" << count << " раз " << endl;
+    }
+
+
+    size_t pos = 0;
+    while (pos = text.find("компьютер", pos)) {
+        if (pos == string::npos) break;
+        text.replace(pos, 9, "ПК"); 
+        pos += 2; 
+    }
+
+    cout << "Текст после замены: "<< endl;
+    cout << text;
+
+    return 0;
+}
